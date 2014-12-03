@@ -95,17 +95,20 @@
         $position = 0;
 	foreach( $all_players as $player )
 	{
-		$position +=1;
-		echo "\t\t\t" . '<tr>' . PHP_EOL;
-		// #
-		printf( "\t\t\t\t<td>%s</td>%s", htmlspecialchars( $position,               ENT_QUOTES ), PHP_EOL );
-		// playername
-		printf( "\t\t\t\t<td>%s</td>%s", htmlspecialchars( $player['playername'],               ENT_QUOTES ), PHP_EOL );
-		// # of games games
-		printf( "\t\t\t\t<td>%s</td>%s", htmlspecialchars( $player['c'],   ENT_QUOTES ), PHP_EOL );
-		// # of games games
-		printf( "\t\t\t\t<td>%s</td>%s", htmlspecialchars( $player['playtime'],   ENT_QUOTES ), PHP_EOL );
-	        echo "\t\t\t" . '</tr>' . PHP_EOL;
+		if ( $player['playername'] != "newbie" )
+		{
+			$position +=1;
+			echo "\t\t\t" . '<tr>' . PHP_EOL;
+			// #
+			printf( "\t\t\t\t<td>%s</td>%s", htmlspecialchars( $position,               ENT_QUOTES ), PHP_EOL );
+			// playername
+			printf( "\t\t\t\t<td>%s</td>%s", htmlspecialchars( $player['playername'],               ENT_QUOTES ), PHP_EOL );
+			// # of games games
+			printf( "\t\t\t\t<td>%s</td>%s", htmlspecialchars( $player['c'],   ENT_QUOTES ), PHP_EOL );
+			// # of games games
+			printf( "\t\t\t\t<td>%s</td>%s", htmlspecialchars( $player['playtime'],   ENT_QUOTES ), PHP_EOL );
+		        echo "\t\t\t" . '</tr>' . PHP_EOL;
+		}
 	}
 	echo '		</table>' . PHP_EOL;
 
